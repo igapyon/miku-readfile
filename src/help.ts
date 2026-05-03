@@ -59,9 +59,15 @@ Result includes:
   summary     requestedFiles, filesRead, filesSkipped, diagnostics
   diagnostics structured expected failures
 
+Default limits:
+  maxFileBytes   10485760 bytes
+  maxFiles       100
+  maxTotalBytes  4194304 bytes
+
 Safety:
   files must be request.root-relative paths using /
   absolute paths and .. path segments are validation errors
+  filesystem root and user home are rejected as too broad
   directories, symlinks, binary files, decode errors, and oversized files are skipped
 
 Exit codes:
