@@ -122,6 +122,19 @@ The bundle smoke check is:
 npm run smoke:bundle
 ```
 
+## GitHub Release Assets
+
+This repository includes a GitHub Actions workflow that attaches CLI bundle artifacts to a GitHub Release when a release tag is published.
+
+Expected release asset names for tag `v0.5.0`:
+
+- `miku-readfile-0.5.0.mjs`
+- `miku-readfile-sources-0.5.0.tgz`
+
+The release workflow checks that the tag version matches `package.json` version, or uses a dot suffix such as `v0.5.0.2`.
+
+This workflow does not run `npm publish`.
+
 ## Working With miku-grep
 
 `miku-grep` と `miku-readfile` は役割を分けて使います。
