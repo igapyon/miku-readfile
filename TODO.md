@@ -52,11 +52,18 @@
 ## Remaining Implementation Tasks
 
 - Review implementation against every item in `docs/miku-readfile-cli-spec.md`.
-- Improve CLI help text further if release review finds gaps.
 
 ## Additional Tests To Add
 
 - Add platform-specific regression cases only if new filesystem edge cases appear.
+
+## Refactoring Candidates
+
+- Keep `src/readfile.ts` as the thin core orchestration entry and avoid moving file I/O back into it.
+- Keep line ending detection, logical line splitting, and range extraction separated from `src/text-shape.ts`.
+- Keep request, file entry, encoding, and limits validation separated from `src/validation.ts`.
+- Consider adding focused unit tests for `src/file-result.ts` and `src/text-shape.ts` if result assembly or range behavior becomes more complex.
+- Keep Node-specific filesystem operations isolated in file/root reader modules so core request/result behavior remains easy to call from CLI, tests, bundle, and future Agent Skills.
 
 ## Documentation Before Release
 
