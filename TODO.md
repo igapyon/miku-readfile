@@ -9,8 +9,10 @@
 - MVP の初期実装を追加済み。
 - `npm run build` は通過済み。
 - `npm run smoke:bundle` は通過済み。
+- `npm audit --audit-level=moderate` は 0 vulnerabilities。
 - Vitest は 25 tests まで追加済み。
 - `bundle/miku-readfile.mjs` と `bundle/miku-readfile-sources.tgz` の生成を追加済み。
+- GitHub Release asset workflow を追加済み。
 
 ## Implemented In Initial Pass
 
@@ -45,12 +47,12 @@
 - single-file Node.js CLI runtime artifact
 - source archive for rebuild / audit / downstream verification
 - package metadata basics: license, repository, homepage, bugs, keywords, bin, files
+- GitHub Release workflow for CLI bundle assets
 
 ## Remaining Implementation Tasks
 
 - Review implementation against every item in `docs/miku-readfile-cli-spec.md`.
 - Improve CLI help text further if release review finds gaps.
-- Decide whether to update Vitest/Vite before release. Current `npm audit --audit-level=moderate` reports dev-only `esbuild` / `vite` / `vitest` moderate advisories, and the suggested audit fix moves to `vitest@4`, which should be treated as a breaking dev-tool update.
 
 ## Additional Tests To Add
 
@@ -60,5 +62,4 @@
 
 - README の usage を実際の published install 方法に合わせて更新する。
 - CLI help text を `docs/miku-readfile-cli-spec.md` と同期する。
-- package / release asset 手順が決まったら README に追記する。
 - `npm publish` は現時点では実行しない。
