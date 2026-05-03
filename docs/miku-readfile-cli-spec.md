@@ -308,6 +308,18 @@ should be careful about user intent before requesting secret-looking files.
 Result file paths must be root-relative paths. Absolute local paths should not
 be returned in result JSON.
 
+## Root Validation
+
+`request.root` must resolve to an existing readable directory.
+
+The filesystem root directory is rejected as too broad. The current user's home
+directory is also rejected as too broad in MVP, because it is usually wider than
+the intended workspace boundary for an AI-agent file-read request.
+
+When `root` cannot be accessed, the result should be `ok: false` with a
+request-level diagnostic such as `root_not_found`, `root_not_accessible`, or
+`root_too_broad`.
+
 ## Encoding
 
 MVP supported encodings:
@@ -722,3 +734,25 @@ miku-readfile
 ```
 
 `miku-readfile` should not grow search features unless a concrete need appears.
+
+## Bundle Artifacts
+
+The Node.js implementation should produce a single-file CLI runtime artifact for
+downstream Agent Skills and local handoff use.
+
+Current artifact names:
+
+```text
+bundle/miku-readfile.mjs
+bundle/miku-readfile-sources.tgz
+```
+
+`bundle/miku-readfile.mjs` is the executable runtime artifact. It should run
+without requiring the source tree and should embed the package version at build
+time so `--version` still works outside the package directory.
+
+`bundle/miku-readfile-sources.tgz` is for rebuild, audit, and downstream
+verification. It is not required at runtime.
+
+A bundle smoke check should verify `--version`, `--help`, stdin JSON execution,
+and source archive contents.
