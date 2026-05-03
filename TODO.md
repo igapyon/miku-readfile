@@ -13,6 +13,7 @@
 - Vitest は 25 tests まで追加済み。
 - `bundle/miku-readfile.mjs` と `bundle/miku-readfile-sources.tgz` の生成を追加済み。
 - GitHub Release asset workflow を追加済み。
+- `docs/miku-readfile-cli-spec.md` と実装の整合確認は実施済み。
 
 ## Implemented In Initial Pass
 
@@ -48,10 +49,6 @@
 - source archive for rebuild / audit / downstream verification
 - package metadata basics: license, repository, homepage, bugs, keywords, bin, files
 - GitHub Release workflow for CLI bundle assets
-
-## Remaining Implementation Tasks
-
-- Review implementation against every item in `docs/miku-readfile-cli-spec.md`.
 
 ## Additional Tests To Add
 

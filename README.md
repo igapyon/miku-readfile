@@ -76,10 +76,12 @@ miku-readfile < request.json > result.json
 ```
 
 `--version` と `--help` は stdin JSON なしで実行でき、stdout に plain text を返す例外です。
+`-h` は `--help` の alias です。
 
 ```bash
 miku-readfile --version
 miku-readfile --help
+miku-readfile -h
 ```
 
 ## Development Usage
