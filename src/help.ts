@@ -7,6 +7,7 @@ Usage:
   miku-readfile < request.json > result.json
   miku-readfile --version
   miku-readfile --help
+  miku-readfile -h
 
 Primary contract:
   stdin   request JSON

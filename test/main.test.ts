@@ -41,6 +41,14 @@ describe("main", () => {
     expect(versionCode).toBe(0);
     expect(versionOut.value).toMatch(/^miku-readfile /);
     expect(versionErr.value).toBe("");
+
+    const shortHelpOut = new StringWritable();
+    const shortHelpErr = new StringWritable();
+    const shortHelpCode = await main(["node", "miku-readfile", "-h"], stdinFrom(""), shortHelpOut, shortHelpErr);
+
+    expect(shortHelpCode).toBe(0);
+    expect(shortHelpOut.value).toContain("miku-readfile -h");
+    expect(shortHelpErr.value).toBe("");
   });
 
   it("returns exit code 2 for malformed stdin", async () => {

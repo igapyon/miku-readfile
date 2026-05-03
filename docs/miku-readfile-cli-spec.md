@@ -105,10 +105,12 @@ concatenation.
 
 `--version` and `--help` are exceptions to the stdin JSON contract. These two
 commands may return plain text to stdout, matching the `miku-grep` convention.
+The short `-h` option is accepted as an alias for `--help`.
 
 ```bash
 miku-readfile --version
 miku-readfile --help
+miku-readfile -h
 ```
 
 ## Exit Codes
